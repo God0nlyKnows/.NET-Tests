@@ -14,4 +14,4 @@ jobs:
           dotnet-version: 7.0.x
       - name: Test
         working-directory: ./Lab7
-        run: dotnet test --no-restore -v q
+        run: dotnet test -v q
