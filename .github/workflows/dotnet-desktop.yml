@@ -1,30 +1,17 @@
-name: Run tests
+name: dotnet test
 
-on:
-  push:
-    branches: [ main ]
+on: [push]
 
 jobs:
-  test:
+  build:
+
     runs-on: ubuntu-latest
-
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
-
-    - name: Setup .NET Core sdk
-      uses: actions/setup-dotnet@v3.0.3
-      with:
-        dotnet-version: 7.0.203
-
-    - name: Restore dependencies
-      working-directory: ./Lab7
-      run: dotnet restore lab5
-
-    - name: Build project
-      working-directory: ./Lab7
-      run: dotnet build lab5
-
-    - name: Run tests
-      working-directory: ./Lab7
-      run: dotnet test lab5
+      - uses: actions/checkout@v3
+      - name: Setup .NET Core SDK
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: 7.0.x
+      - name: Test
+        working-directory: ./Lab7
+        run: dotnet test -v q

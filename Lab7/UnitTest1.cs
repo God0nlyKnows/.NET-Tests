@@ -51,7 +51,7 @@ namespace lab5
             _apiMock.SetMockResponse(10);
 
             // Wywo³ujemy metodê API i porównujemy wynik z oczekiwan¹ wartoœci¹
-            Assert.AreEqual(10, _apiMock.GetValue(123));
+            Assert.That(_apiMock.GetValue(123), Is.EqualTo(10));
         }
     }
 }
