@@ -18,10 +18,13 @@ jobs:
         dotnet-version: 7.0.203
 
     - name: Restore dependencies
+      working-directory: ./Lab7
       run: dotnet restore lab5
 
     - name: Build project
+      working-directory: ./Lab7
       run: dotnet build lab5
 
     - name: Run tests
+      working-directory: ./Lab7
       run: dotnet test lab5
